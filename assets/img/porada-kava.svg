@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 280" role="img" aria-label="Káva a rozhovor – prvé stretnutie s klientom">
+  <defs>
+    <linearGradient id="cg-brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0E9DE5"/>
+      <stop offset="1" stop-color="#2BE0A6"/>
+    </linearGradient>
+    <linearGradient id="cg-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2F8FD"/>
+      <stop offset="1" stop-color="#E7F3FB"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="280" rx="18" fill="url(#cg-bg)"/>
+  <circle cx="70" cy="60" r="80" fill="#2BE0A6" opacity="0.08"/>
+  <circle cx="580" cy="230" r="95" fill="#0E9DE5" opacity="0.07"/>
+
+  <!-- doska stola -->
+  <ellipse cx="320" cy="212" rx="252" ry="40" fill="#DCE7F1"/>
+  <ellipse cx="320" cy="206" rx="252" ry="40" fill="#EDF4FB"/>
+
+  <!-- laptop v strede -->
+  <g>
+    <rect x="266" y="120" width="108" height="70" rx="7" fill="#0B1220"/>
+    <rect x="273" y="127" width="94" height="56" rx="3" fill="url(#cg-brand)"/>
+    <rect x="282" y="136" width="46" height="8" rx="4" fill="#fff" opacity="0.95"/>
+    <rect x="282" y="150" width="34" height="6" rx="3" fill="#fff" opacity="0.75"/>
+    <rect x="282" y="164" width="26" height="10" rx="4" fill="#fff"/>
+    <rect x="252" y="190" width="136" height="8" rx="4" fill="#1B2A3E"/>
+  </g>
+
+  <!-- šálka vľavo -->
+  <g>
+    <path d="M150 156 q3 -8 0 -15 M162 156 q3 -8 0 -15 M174 156 q3 -8 0 -15" stroke="#9DB0C4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <rect x="140" y="160" width="52" height="34" rx="7" fill="#fff" stroke="#CBD8E5" stroke-width="2"/>
+    <path d="M192 166 h10 a9 9 0 0 1 0 18 h-10" fill="none" stroke="#CBD8E5" stroke-width="3"/>
+    <ellipse cx="166" cy="167" rx="22" ry="5" fill="#6B4A2E"/>
+    <ellipse cx="166" cy="205" rx="30" ry="7" fill="#CBD8E5" opacity="0.6"/>
+  </g>
+
+  <!-- šálka vpravo -->
+  <g>
+    <path d="M470 150 q3 -8 0 -15 M482 150 q3 -8 0 -15" stroke="#9DB0C4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+    <rect x="452" y="154" width="48" height="32" rx="7" fill="#0E9DE5"/>
+    <path d="M500 160 h9 a8 8 0 0 1 0 16 h-9" fill="none" stroke="#0E9DE5" stroke-width="3"/>
+    <ellipse cx="476" cy="161" rx="20" ry="4.5" fill="#0B7099"/>
+    <ellipse cx="476" cy="197" rx="28" ry="6" fill="#CBD8E5" opacity="0.6"/>
+  </g>
+
+  <!-- poznámkový blok + pero -->
+  <g>
+    <rect x="392" y="176" width="70" height="46" rx="5" fill="#fff" stroke="#E3EAF2" transform="rotate(-9 427 199)"/>
+    <line x1="402" y1="190" x2="448" y2="183" stroke="#CBD8E5" stroke-width="2.5" transform="rotate(-9 427 199)"/>
+    <line x1="404" y1="200" x2="450" y2="193" stroke="#CBD8E5" stroke-width="2.5" transform="rotate(-9 427 199)"/>
+    <line x1="406" y1="210" x2="436" y2="204" stroke="#CBD8E5" stroke-width="2.5" transform="rotate(-9 427 199)"/>
+    <rect x="452" y="196" width="7" height="44" rx="3.5" fill="#2BE0A6" transform="rotate(38 455 218)"/>
+  </g>
+
+  <!-- bublina s nápadom (žiarovka) -->
+  <g>
+    <rect x="150" y="60" width="120" height="66" rx="14" fill="#fff" stroke="#E3EAF2"/>
+    <path d="M186 126 l14 0 l-20 16 z" fill="#fff"/>
+    <path d="M210 76 a18 18 0 0 0 -12 31 v7 h24 v-7 a18 18 0 0 0 -12 -31z" fill="none" stroke="url(#cg-brand)" stroke-width="4"/>
+    <line x1="200" y1="118" x2="212" y2="118" stroke="#0E9DE5" stroke-width="4" stroke-linecap="round"/>
+    <path d="M210 88 v14 M210 102 l-6 6 M210 102 l6 6" stroke="#2BE0A6" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- bublina s odkazom (chat) -->
+  <g>
+    <rect x="392" y="52" width="118" height="60" rx="14" fill="url(#cg-brand)"/>
+    <path d="M470 112 l-14 0 l20 16 z" fill="#2BE0A6"/>
+    <rect x="410" y="72" width="66" height="8" rx="4" fill="#fff" opacity="0.95"/>
+    <rect x="410" y="86" width="82" height="8" rx="4" fill="#fff" opacity="0.8"/>
+  </g>
+</svg>

@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0B1220">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0B1220">
+<title>E-shop na Shoptete — cenník | noGrey</title>
+<meta name="description" content="Spustíme váš e-shop na Shoptete na kľúč. Transparentné balíky od 990 €, mesačná správa a rast. noGrey — digitálne štúdio z Trenčína.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://www.nogrey.online/assets/style.css">
+<link rel="icon" href="https://www.nogrey.online/assets/img/favicon.png">
+<style>
+  /* drobné doplnky pre túto stránku — v duchu noGrey systému */
+  .plan-note{font-size:.8rem;color:var(--muted);margin-top:14px}
+  .price-card .price small{font-family:'Manrope';font-size:.85rem;font-weight:600;color:var(--muted);letter-spacing:0}
+  .num-badge{font-family:'Bricolage Grotesque';font-weight:800;font-size:1.1rem;flex:none;width:50px;height:50px;display:grid;place-items:center;border-radius:14px;background:var(--grad);color:var(--ink);margin-bottom:18px;transition:transform .2s cubic-bezier(.34,1.5,.64,1)}
+  .card:hover .num-badge{transform:rotate(-6deg) scale(1.07)}
+  .who-pays{margin-top:auto;padding-top:16px;font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.11em;color:var(--azure-text)}
+  /* one-page: bez zemegule v CTA */
+  .cta-final::before{display:none}
+  /* checklist s nadpisom a popisom pod sebou — bez škaredého zalamovania */
+  .check-split li strong,.check li.split strong{display:block;margin-bottom:2px}
+  .check-split li .d,.check li.split .d{display:block;color:var(--slate);font-size:.88rem;line-height:1.5}
+  /* interaktívny particles košík v hero — žiariaci 3D particle cloud */
+  #cart{width:min(100%,560px);height:auto;aspect-ratio:1;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  /* counter spany vnútri veľkých čísel musia dediť veľkosť (nie štýl labelov .stats span) */
+  .stats b span{font-size:inherit;color:inherit;font-weight:inherit;text-transform:inherit;letter-spacing:inherit}
+  /* 3D obrázok košíka: tilt za kurzorom + parallax (aktivuje sa, keď existuje kosik.png) */
+  .cart3d-wrap{perspective:950px;display:none;place-items:center;width:100%;height:100%}
+  .hero-visual.img-ok .cart3d-wrap{display:grid}
+  .hero-visual.img-ok #cart{display:none}
+  #cart3d{width:min(100%,500px);height:auto;will-change:transform;
+    filter:drop-shadow(0 34px 70px rgba(10,110,180,.42)) drop-shadow(0 0 46px rgba(43,224,166,.18))}
+  @media(prefers-reduced-motion:reduce){#cart3d{transform:none!important}}
+  /* košík na mobile: zrušiť prázdne miesto nad aj pod ním, svetlá sekcia hneď za košíkom */
+  @media(max-width:700px){
+    .hero-inner{gap:0}
+    .hero{padding-bottom:0}
+    .hero-visual{height:auto;margin-top:0}
+    #cart{transform:translateX(15px)}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="logo" href="https://www.nogrey.online/"><img src="https://www.nogrey.online/assets/img/logo-nogrey.svg" alt="noGrey" class="logo-img"></a>
+    <ul class="nav-links">
+      <li><a href="tel:+421915611441" class="nav-tel">+421 915 611 441</a></li>
+      <li><a href="mailto:nogrey@nogrey.sk?subject=E-shop%20na%20Shoptete%20%E2%80%94%20konzult%C3%A1cia" class="btn btn-primary" style="padding:11px 22px;font-size:.9rem">Nezáväzná konzultácia</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ HERO so zemeguľou ============ -->
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow" style="color:#2BE0A6">Tvorba e-shopov </span>
+      <h1>E-shop, <span class="grad-text">ktorý predáva.</span></h1>
+      <p class="lead">Spustíme vám profesionálny e-shop na najrozšírenejšej platforme na Slovensku — rýchlo, bez technických starostí a s dizajnom, ktorý si zákazníci zapamätajú. Vy sa staráte o tovar, my o všetko ostatné.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#cennik">Pozrieť balíky a ceny</a>
+        <a class="btn btn-ghost" href="mailto:nogrey@nogrey.sk?subject=E-shop%20na%20Shoptete%20%E2%80%94%20konzult%C3%A1cia">Konzultácia zdarma</a>
+      </div>
+      <ul class="trust">
+        <li><b><span class="count" data-to="2010" data-dur="1600">2010</span></b>Na trhu od</li>
+        <li><b><span class="count" data-to="200" data-dur="1400">200</span><em>+</em></b>Webov a e-shopov</li>
+        <li><b><em><span class="cnt" data-from="1000" data-to="45000" data-dur="2000">1 000</span>+</em></b>E-shopov na Shoptete</li>
+        <li><b><span class="count" data-to="3" data-dur="900">3</span>–<span class="count" data-to="6" data-dur="1100">6</span>&nbsp;<em>týždňov</em></b>Spustenie</li>
+      </ul>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <div class="cart3d-wrap"><img id="cart3d" src="kosik.png" alt=""></div>
+      <canvas id="cart" width="560" height="560"></canvas>
+    </div>
+  </div>
+</header>
+
+<!-- ============ PREČO SHOPTET ============ -->
+<section>
+  <div class="wrap">
+    <div class="reveal"><span class="eyebrow">Prečo Shoptet</span>
+      <h2>Overená platforma.<br>Žiadne experimenty s vaším biznisom.</h2>
+      <p style="color:var(--slate);max-width:640px;margin-bottom:14px">E-shop na mieru stojí tisíce eur a mesiace vývoja. Shoptet vám dá overené jadro — a my z neho spravíme e-shop, ktorý vyzerá a predáva ako na mieru.</p>
+    </div>
+    <div class="grid g2" style="margin-top:30px;align-items:start">
+      <div class="card reveal">
+        <h3>Čo získate so Shoptetom</h3>
+        <ul class="check check-split" style="margin-top:16px">
+          <li><span><strong>Rýchly štart</strong><span class="d">E-shop spustený za 3–6 týždňov, nie za pol roka.</span></span></li>
+          <li><span><strong>Hosting, bezpečnosť a zálohy v cene</strong><span class="d">O servery sa nestaráte.</span></span></li>
+          <li><span><strong>Legislatíva automaticky</strong><span class="d">GDPR, fakturáciu a e-commerce pravidlá rieši platforma.</span></span></li>
+          <li><span><strong>Platby a doprava na pár klikov</strong><span class="d">Shoptet Pay, kuriéri, balíkomaty.</span></span></li>
+          <li><span><strong>Rastie s vami</strong><span class="d">Od 20 produktov po desaťtisíce, stačí zmeniť tarifu.</span></span></li>
+          <li><span><strong>Stovky doplnkov</strong><span class="d">Heureka, Google, ERP, sklady, e-mailing.</span></span></li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <h3>Čo k tomu pridáme my</h3>
+        <ul class="check check-split" style="margin-top:16px">
+          <li><span><strong>Dizajn, ktorý nevyzerá šablónovo</strong><span class="d">Upravíme vzhľad do vašej značky.</span></span></li>
+          <li><span><strong>Kompletné nastavenie</strong><span class="d">Platby, doprava, e-maily, fakturácia, GDPR.</span></span></li>
+          <li><span><strong>Naplnenie produktov</strong><span class="d">Popisy, fotky, kategórie, varianty.</span></span></li>
+          <li><span><strong>SEO od prvého dňa</strong><span class="d">Aby vás zákazníci našli.</span></span></li>
+          <li><span><strong>Zaškolenie</strong><span class="d">Administráciu zvládnete sami, bez programátora.</span></span></li>
+          <li><span><strong>Podporu po spustení</strong><span class="d">Nezostanete na to sami.</span></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="stats reveal" style="margin-top:26px">
+      <div><b><span class="cnt" data-from="1000" data-to="45000" data-dur="2000">1 000</span>+</b><span>e-shopov na platforme</span></div>
+      <div><b>od <span class="cnt" data-to="16.5" data-dec="2" data-dur="1600">0</span> €</b><span>mesačný prenájom</span></div>
+      <div><b><span class="cnt" data-to="3" data-dur="1100">0</span>–<span class="cnt" data-to="6" data-dur="1600">0</span> týž.</b><span>od zadania po spustenie</span></div>
+      <div><b><span class="cnt" data-from="100" data-to="0" data-dur="1600">100</span> €</b><span>za hosting</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3 NÁKLADOVÉ ZLOŽKY ============ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="reveal"><span class="eyebrow">Transparentne</span>
+      <h2>Z čoho sa skladá cena e-shopu</h2>
+      <p style="max-width:640px;margin-bottom:14px">Žiadne skryté poplatky ani hviezdičky. Váš e-shop má tri jasne oddelené nákladové zložky — a vždy viete, komu za čo platíte:</p>
+    </div>
+    <div class="grid g3" style="margin-top:26px">
+      <div class="card reveal">
+        <div class="num-badge">1</div>
+        <h3>Jednorazové spustenie</h3>
+        <p>Dizajn, nastavenie, produkty, platby a doprava — kompletná realizácia na kľúč od nás. Platíte raz, e-shop je váš.</p>
+        <div class="who-pays">platíte nám · jednorazovo</div>
+      </div>
+      <div class="card reveal">
+        <div class="num-badge">2</div>
+        <h3>Prenájom platformy</h3>
+        <p>Mesačná tarifa Shoptetu podľa veľkosti sortimentu — od 16,50 €/mes. V cene hosting, bezpečnosť aj aktualizácie.</p>
+        <div class="who-pays">platíte Shoptetu · mesačne</div>
+      </div>
+      <div class="card reveal">
+        <div class="num-badge">3</div>
+        <h3>Správa a rast</h3>
+        <p>Voliteľná priebežná starostlivosť — úpravy, obsah a marketing, aby e-shop rástol aj po spustení.</p>
+        <div class="who-pays">platíte nám · mesačne · voliteľné</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CENNÍK ============ -->
+<section class="tint" id="cennik">
+  <div class="wrap">
+    <div class="reveal"><span class="eyebrow">Balíky spustenia</span>
+      <h2>Vyberte si rozsah.<br>My sa postaráme o zvyšok.</h2>
+      <p style="color:var(--slate);max-width:640px;margin-bottom:14px">Ceny sú „od" a bez DPH — presnú ponuku pripravíme po krátkej nezáväznej konzultácii. Bez záväzkov, bez tlaku.</p>
+    </div>
+    <div class="price-grid" style="margin-top:30px">
+
+      <div class="price-card reveal">
+        <div class="tier">Štart</div>
+        <div class="price">od 990 € <small>bez DPH</small></div>
+        <p class="for">Pre overenie nápadu a menší sortiment. Predávate do pár týždňov.</p>
+        <ul class="check">
+          <li>šablóna Shoptetu vo vašom brandingu</li>
+          <li>nastavenie administrácie, platieb a dopravy</li>
+          <li>Shoptet Pay, GDPR &amp; cookies</li>
+          <li><strong>import do 20 produktov</strong></li>
+          <li>základné SEO nastavenie</li>
+          <li>zaškolenie do administrácie</li>
+        </ul>
+        <a class="btn btn-dark" href="mailto:nogrey@nogrey.sk?subject=E-shop%20%C5%A0tart">Mám záujem</a>
+      </div>
+
+      <div class="price-card featured reveal">
+        <div class="badge-top">Najčastejšia voľba</div>
+        <div class="tier">Štandard</div>
+        <div class="price">od 1 890 € <small>bez DPH</small></div>
+        <p class="for">Pre firmy, ktoré to s predajom online myslia vážne.</p>
+        <ul class="check">
+          <li>všetko z balíka <strong>Štart</strong></li>
+          <li class="split"><span><strong>šablóna upravená na mieru</strong><span class="d">Hero, kategórie, detail produktu.</span></span></li>
+          <li><strong>import do 100 produktov</strong></li>
+          <li>e-mailové notifikácie &amp; fakturácia</li>
+          <li>1 marketingový feed (Heureka / Google)</li>
+          <li>rozšírené SEO + texty hlavnej stránky</li>
+        </ul>
+        <a class="btn btn-primary" href="mailto:nogrey@nogrey.sk?subject=E-shop%20%C5%A0tandard">Chcem Štandard</a>
+      </div>
+
+      <div class="price-card reveal">
+        <div class="tier">Premium</div>
+        <div class="price">od 3 500 € <small>bez DPH</small></div>
+        <p class="for">Pre etablované značky a väčší sortiment.</p>
+        <ul class="check">
+          <li>všetko z balíka <strong>Štandard</strong></li>
+          <li><strong>plne custom dizajn</strong> (UX + grafika)</li>
+          <li>migrácia dát z pôvodného riešenia</li>
+          <li>viac feedov &amp; napojenia (ERP, dodávatelia)</li>
+          <li>pokročilé filtre, varianty, blog</li>
+          <li>copywriting kľúčových stránok</li>
+        </ul>
+        <a class="btn btn-dark" href="mailto:nogrey@nogrey.sk?subject=E-shop%20Premium">Mám záujem</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROZPIS ============ -->
+<section>
+  <div class="wrap">
+    <div class="reveal"><span class="eyebrow">Detailný rozpis</span>
+      <h2>Doplnkové služby a tarify platformy</h2>
+      <p style="color:var(--slate);max-width:640px;margin-bottom:14px">Potrebujete viac produktov, špeciálne napojenie alebo pomoc s obsahom? Účtujeme transparentne — vopred viete, koľko a za čo.</p>
+    </div>
+    <div class="grid g2" style="margin-top:26px">
+
+      <div class="card reveal">
+        <h3>Nad rámec balíka</h3>
+        <p>Rozšírenia podľa potreby — pripočítajú sa k cene balíka.</p>
+        <div class="rows">
+          <div><span>Naplnenie produktu</span><b>2 – 4 € / ks</b></div>
+          <div><span>Grafika &amp; úpravy šablóny</span><b>199 – 299 € / hod</b></div>
+          <div><span>XML feed / ERP napojenie</span><b>249 € / hod</b></div>
+          <div><span>Logo / vizuálna identita</span><b>od 350 €</b></div>
+          <div><span>Copywriting (stránka)</span><b>od 35 € / ks</b></div>
+          <div><span>Migrácia z inej platformy</span><b>od 300 €</b></div>
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <h3>Mesačný prenájom Shoptetu</h3>
+        <p>Platíte priamo platforme — v cene hosting, zabezpečenie aj aktualizácie. Pri ročnej platbe zľava 10&nbsp;%. S výberom tarify poradíme.</p>
+        <div class="rows">
+          <div><span>Basic · do 100 produktov</span><b>16,50 € / mes</b></div>
+          <div><span>Business · do 1 000</span><b>55 € / mes</b></div>
+          <div><span>Profi · do 5 000</span><b>91 € / mes</b></div>
+          <div><span>Enterprise · do 50 000</span><b>173,50 € / mes</b></div>
+        </div>
+        <p class="plan-note">Platobná brána Shoptet Pay od 1,19 % z transakcie.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ MESAČNÁ SPRÁVA ============ -->
+<section class="dark">
+  <div class="wrap">
+    <div class="reveal"><span class="eyebrow">Po spustení</span>
+      <h2>E-shop nie je projekt.<br>Je to proces.</h2>
+      <p style="max-width:640px;margin-bottom:14px">Spustením sa to nekončí — začína. Postaráme sa, aby váš e-shop fungoval, bol aktuálny a každý mesiac rástol.</p>
+    </div>
+    <div class="grid g3" style="margin-top:26px">
+      <div class="card reveal">
+        <h3>Dohľad</h3>
+        <p>Monitoring funkčnosti, drobné úpravy do 1 hodiny mesačne, prioritná podpora. Istota, že sa máte na koho obrátiť.</p>
+        <div class="rows"><div><span>Mesačne</span><b>49 €</b></div></div>
+      </div>
+      <div class="card reveal">
+        <h3>Aktívna správa</h3>
+        <p>Úpravy a obsah do 3 hodín mesačne, pravidelné reporty, mesačná konzultácia. E-shop, ktorý je stále čerstvý.</p>
+        <div class="rows"><div><span>Mesačne</span><b>149 €</b></div></div>
+      </div>
+      <div class="card reveal">
+        <h3>Rast</h3>
+        <p>Správa + marketing: kampane, SEO, cenové porovnávače. Mesačný plán, realizácia a vyhodnotenie čísiel.</p>
+        <div class="rows"><div><span>Mesačne</span><b>od 349 €</b></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POSTUP ============ -->
+<section>
+  <div class="wrap">
+    <div class="reveal"><span class="eyebrow">Ako to prebieha</span>
+      <h2>Od prvej kávy po prvú objednávku</h2>
+      <p style="color:var(--slate);max-width:640px;margin-bottom:14px">Jasný proces bez prekvapení. V každom kroku viete, čo sa deje a čo bude nasledovať.</p>
+    </div>
+    <div style="max-width:760px;margin-top:20px">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <div><h3>Konzultácia a analýza</h3><p>Prejdeme váš sortiment, ciele a konkurenciu. Odporučíme balík aj tarifu Shoptetu — nezáväzne a zdarma.</p></div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <div><h3>Dizajn a štruktúra</h3><p>Pripravíme vzhľad e-shopu vo vašej značke a navrhneme kategórie tak, aby zákazník našiel tovar na tri kliky.</p></div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <div><h3>Nastavenie a naplnenie</h3><p>Platby, doprava, e-maily, fakturácia, GDPR, produkty. Všetko nastavíme, naplníme a preklikáme.</p></div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">4</div>
+        <div><h3>Testovanie a zaškolenie</h3><p>Otestujeme celý nákupný proces vrátane platieb. Vás naučíme administráciu — je jednoduchšia, než čakáte.</p></div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">5</div>
+        <div><h3>Spustenie a rast</h3><p>E-shop ide do sveta. Zapneme feedy do porovnávačov a ak chcete, staráme sa oň ďalej v rámci mesačnej správy.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="tint">
+  <div class="wrap">
+    <div class="reveal"><span class="eyebrow">FAQ</span>
+      <h2>Otázky, ktoré si kladiete<br>(a je to úplne v poriadku)</h2>
+    </div>
+    <div style="max-width:760px;margin-top:26px" class="reveal">
+      <details>
+        <summary>Koľko trvá spustenie e-shopu?</summary>
+        <p>Pri balíku Štart 2–3 týždne, pri Štandarde 3–6 týždňov od dodania podkladov. Premium podľa rozsahu — termín potvrdíme na konzultácii. Najviac času zvyčajne zaberie príprava produktov na vašej strane, s tou vieme pomôcť.</p>
+      </details>
+      <details>
+        <summary>Prečo Shoptet a nie e-shop na mieru?</summary>
+        <p>Pre 9 z 10 obchodov je Shoptet ekonomicky rozumnejšia voľba: štart za týždne namiesto mesiacov, hosting a bezpečnosť v cene, žiadna závislosť od jedného programátora. E-shop na mieru dáva zmysel až pri veľmi špecifických procesoch — a aj to vieme posúdiť a povedať vám na rovinu.</p>
+      </details>
+      <details>
+        <summary>Komu patrí e-shop a dáta?</summary>
+        <p>Účet u Shoptetu je písaný na vás, produkty aj zákazníci sú vaše dáta a kedykoľvek sa dajú exportovať. My sme dodávateľ — nie prostredník, cez ktorého by ste boli „uviaznutí".</p>
+      </details>
+      <details>
+        <summary>Aké budú moje mesačné náklady?</summary>
+        <p>Tarifa Shoptetu podľa počtu produktov (od 16,50 €/mes, platíte priamo Shoptetu) + voliteľná správa od nás (od 49 €/mes). K tomu provízia platobnej brány od 1,19 % z transakcie. Nič iné.</p>
+      </details>
+      <details>
+        <summary>Máme e-shop inde. Viete nás presunúť?</summary>
+        <p>Áno — produkty, kategórie, zákazníkov aj objednávky vieme migrovať z väčšiny platforiem (WooCommerce, PrestaShop, vlastné riešenia). Súčasťou je aj presmerovanie URL adries, aby ste neprišli o pozície vo vyhľadávaní.</p>
+      </details>
+      <details>
+        <summary>Čo ak budem potrebovať niečo, čo Shoptet nevie?</summary>
+        <p>Najprv siahneme po overených doplnkoch z marketplace. Ak nestačia, vieme cez Shoptet API postaviť vlastné napojenie — na sklad, ERP či dodávateľov. Povieme vám vopred, čo je možné a koľko to bude stáť.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section>
+  <div class="cta-final reveal">
+    <span class="eyebrow">Spustite predaj rýchlo a na správnom základe</span>
+    <h2>Váš nový e-shop môže zarábať už o pár týždňov.<br>Otázka je, kedy začneme.</h2>
+    <p>Bezplatne s vami prejdeme váš sortiment a navrhneme Shoptet riešenie, ktoré vám sadne na mieru. Získate ideálny balík a nastavenie funkcií tak, aby ste mohli začať okamžite a naplno predávať.</p>
+    <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+      <a class="btn btn-primary" href="mailto:nogrey@nogrey.sk?subject=E-shop%20na%20Shoptete%20%E2%80%94%20konzult%C3%A1cia">Chcem konzultáciu zdarma</a>
+      <a class="btn" href="tel:+421915611441">Zavolať +421 915 611 441</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="https://www.nogrey.online/" style="font-size:1.4rem"><img src="logo-nogrey.svg" alt="noGrey" class="logo-img foot-logo-img"></a>
+        <p style="margin-top:14px;font-size:.93rem">Digitálne štúdio z Trenčína – high-end portály, robustné e-shopy a automatizácia procesov. Od roku 2010.</p>
+      </div>
+      <div>
+        <h4>Na tejto stránke</h4>
+        <ul>
+          <li><a href="#cennik">Balíky a ceny</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li>noGrey s.r.o.</li>
+          <li><a href="https://www.google.com/maps/dir//48.88644439911132,18.008997120482388" target="_blank" rel="noopener noreferrer">Brnianska 2372, 911 05 Trenčín</a></li>
+          <li><a href="mailto:nogrey@nogrey.sk">nogrey@nogrey.sk</a></li>
+          <li><a href="tel:+421915611441">+421 915 611 441</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 noGrey s.r.o. Všetky práva vyhradené.</span>
+      <span>Ceny bez DPH, orientačné — finálna ponuka po konzultácii.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- rovnaké animácie ako na nogrey.online: reveal, count-up, ripple, cookies -->
+<script src="https://www.nogrey.online/assets/main.js" defer></script>
+
+<script>
+/* interaktívny particles nákupný košík — žiariaci 3D particle cloud:
+   hustý oblak bodov v perspektíve, gradient azúrová→mint, prach, odlesk na podlahe;
+   klik → produkt priletí do koša + svetelná vlna + počítadlo */
+(function(){
+  const cv=document.getElementById('cart');if(!cv)return;
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const ctx=cv.getContext('2d');
+  const dpr=Math.min(devicePixelRatio||1,1.5);
+  const S=560;cv.width=S*dpr;cv.height=S*dpr;ctx.scale(dpr,dpr);
+  const CX=270,CY=205,U=4.3,UW=5.4,F=520; /* UW: roztiahnutie do šírky */
+
+  /* žiariace sprity — gradient azúrová → mint podľa polohy X v modeli */
+  const NS=9,SPR=[];
+  for(let i=0;i<NS;i++){
+    const t=i/(NS-1);
+    const r=Math.round(64-4*t),g=Math.round(170+65*t),b=Math.round(255-105*t);
+    const c=document.createElement('canvas');c.width=c.height=48;
+    const g2=c.getContext('2d');
+    const gr=g2.createRadialGradient(24,24,0,24,24,24);
+    gr.addColorStop(0,'rgba(235,255,250,.95)');
+    gr.addColorStop(.22,`rgba(${r},${g},${b},.85)`);
+    gr.addColorStop(.55,`rgba(${r},${g},${b},.28)`);
+    gr.addColorStop(1,'rgba(0,0,0,0)');
+    g2.fillStyle=gr;g2.fillRect(0,0,48,48);
+    SPR.push(c);
+  }
+  const sprFor=x=>SPR[Math.max(0,Math.min(NS-1,Math.round((x+46)/88*(NS-1))))];
+
+  /* ===== 3D model košíka (jednotky, y nadol) ===== */
+  const pts=[];
+  function P(x,y,z,sz){
+    pts.push({x,y,z,sz,spr:sprFor(x),tw:Math.random()*Math.PI*2,
+      dc:Math.hypot(x-2,y-14,z),ox:0,oy:0});
+  }
+  function seg(x1,y1,z1,x2,y2,z2,step,spread){
+    const L=Math.hypot(x2-x1,y2-y1,z2-z1),n=Math.max(2,Math.round(L/step));
+    for(let i=0;i<=n;i++){
+      const t=i/n,J=()=>(Math.random()-.5)*2*spread;
+      P(x1+(x2-x1)*t+J(),y1+(y2-y1)*t+J(),z1+(z2-z1)*t+J(),
+        Math.random()<.06?2.3+Math.random():.7+Math.random()*1.1);
+      if(Math.random()<.18)P(x1+(x2-x1)*t+J()*4,y1+(y2-y1)*t+J()*4,z1+(z2-z1)*t+J()*4,.45+Math.random()*.7);
+    }
+  }
+  const lerp=(a,b,t)=>a+(b-a)*t;
+  /* kôš: hore x -30..36 (z ±16), dole x -22..26 (z ±11) */
+  for(const s of [1,-1]){
+    const zt=16*s,zb=11*s;
+    seg(-30,0,zt,36,0,zt,1.15,.9);            /* horný okraj */
+    seg(-22,34,zb,26,34,zb,1.3,.9);           /* dolný okraj */
+    seg(-30,0,zt,-22,34,zb,1.3,.9);           /* zadná šikmina */
+    seg(36,0,zt,26,34,zb,1.3,.9);             /* predná šikmina */
+    for(let k=1;k<=10;k++){                   /* mriežka zvislá */
+      const tt=k/11;
+      seg(lerp(-30,36,tt),0,zt,lerp(-22,26,tt),34,zb,1.6,.75);
+    }
+    for(let r2=1;r2<=3;r2++){                 /* mriežka vodorovná */
+      const tt=r2/4;
+      seg(lerp(-30,-22,tt),34*tt,lerp(zt,zb,tt),lerp(36,26,tt),34*tt,lerp(zt,zb,tt),1.6,.75);
+    }
+  }
+  /* priečne hrany + čelá s mriežkou */
+  seg(-30,0,-16,-30,0,16,1.15,.9);seg(36,0,-16,36,0,16,1.15,.9);
+  seg(-22,34,-11,-22,34,11,1.3,.9);seg(26,34,-11,26,34,11,1.3,.9);
+  for(const k of [-.5,0,.5]){
+    seg(36,0,16*k,26,34,11*k,1.6,.75);
+    seg(-30,0,16*k,-22,34,11*k,1.6,.75);
+  }
+  /* dno koša */
+  for(const zz of [-11,-3.7,3.7,11])seg(-22,34,zz,26,34,zz,1.7,.7);
+  for(let j=1;j<6;j++)seg(lerp(-22,26,j/6),34,-11,lerp(-22,26,j/6),34,11,1.7,.7);
+  /* rúčka – hustejšia, nech vyzerá ako plná spojená rukoväť (nie odpojená) */
+  for(const s of [1,-1])seg(-30,0,13*s,-46,-20,9*s,.55,.65);
+  seg(-46,-20,-9,-46,-20,9,.5,.65);
+  /* podvozok + kolesá */
+  for(const s of [1,-1]){
+    seg(-22,34,9*s,-28,52,9*s,1.2,.8);
+    seg(26,34,9*s,20,52,9*s,1.2,.8);
+  }
+  const WHEELS=[[-28,58,10],[-28,58,-10],[20,58,10],[20,58,-10]];
+  for(const [wx,wy,wz] of WHEELS){
+    for(let i=0;i<26;i++){
+      const a=i/26*Math.PI*2;
+      P(wx+Math.cos(a)*6+(Math.random()-.5),wy+Math.sin(a)*6+(Math.random()-.5),wz+(Math.random()-.5),1+Math.random());
+    }
+    P(wx,wy,wz,2.2);
+  }
+
+  /* sprej — častice sa „odparujú" z pravého horného okraja koša */
+  const drift=[];
+  const newDrift=seed=>({
+    x:16+Math.random()*22,y:-4+Math.random()*14,z:(Math.random()-.5)*26,
+    vx:.006+Math.random()*.011,vy:-(.003+Math.random()*.007),
+    life:seed?Math.random():0,rate:1/(2200+Math.random()*1800),
+    sz:.5+Math.random()*1.2,tw:Math.random()*6.3});
+  for(let i=0;i<130;i++)drift.push(newDrift(true));
+
+  /* prach v priestore (obrazovkové súradnice) */
+  const dust=[];
+  for(let i=0;i<110;i++){
+    const big=Math.random()<.12;
+    dust.push({x:Math.random()*S,y:Math.random()*S,
+      r:big?4.5+Math.random()*3.5:.6+Math.random()*2.4,
+      a:big?.05+Math.random()*.05:.08+Math.random()*.3,
+      spr:SPR[Math.floor(Math.random()*NS)],
+      vx:(Math.random()-.5)*.008,vy:(Math.random()-.5)*.006,
+      tw:Math.random()*6.3});
+  }
+  /* koberec bodov na podlahe */
+  const floorPts=[];
+  for(let i=0;i<240;i++){
+    const x=-95+Math.random()*210;
+    floorPts.push({x,y:57.5+Math.random()*5,z:(Math.random()-.5)*85,
+      spr:sprFor(x*.7),sz:.4+Math.random()*1.1,a:.05+Math.random()*.16,
+      tw:Math.random()*6.3});
+  }
+
+  /* ===== interakcia ===== */
+  let count=0,badgeT=-1e9,last=0;
+  const pulses=[],flights=[];
+  let mx=-1e4,my=-1e4;
+  const toCanvas=e=>{
+    const rc=cv.getBoundingClientRect();
+    return [(e.clientX-rc.left)*S/rc.width,(e.clientY-rc.top)*S/rc.height];
+  };
+  cv.addEventListener('mousemove',e=>{[mx,my]=toCanvas(e)});
+  cv.addEventListener('mouseleave',()=>{mx=my=-1e4});
+  const addProduct=(sx,sy,t)=>flights.push({x0:sx,y0:sy,t0:t,dur:760});
+  cv.addEventListener('click',e=>{
+    if(reduced)return;
+    const [x,y]=toCanvas(e);addProduct(x,y,performance.now());
+  });
+
+  /* ===== render ===== */
+  function frame(t){
+    const dt=Math.min(t-last,50);last=t;
+    const ry=-.55+Math.sin(t*.00035)*.07;         /* jemné pootáčanie */
+    const bob=Math.sin(t*.0009)*2.2;              /* levitácia koša */
+    const cy=Math.cos(ry),sy=Math.sin(ry);
+    const cx=Math.cos(.17),sx=Math.sin(.17);      /* náklon kamery */
+    const pr=(x,y,z)=>{
+      const x1=x*cy+z*sy,z1=-x*sy+z*cy;
+      const y2=y*cx-z1*sx,z2=y*sx+z1*cx;
+      const sc=F/(F+z2*U);
+      return [CX+x1*UW*sc,CY+y2*U*sc,sc];
+    };
+    const [,floorY]=pr(0,60,0);
+    ctx.clearRect(0,0,S,S);
+    ctx.globalCompositeOperation='lighter';
+
+    /* prach */
+    for(const d of dust){
+      d.x+=d.vx*dt;d.y+=d.vy*dt;
+      if(d.x<-10)d.x=S+10;if(d.x>S+10)d.x=-10;
+      if(d.y<-10)d.y=S+10;if(d.y>S+10)d.y=-10;
+      ctx.globalAlpha=d.a*(.6+.4*Math.sin(t*.0012+d.tw));
+      ctx.drawImage(d.spr,d.x-d.r*2,d.y-d.r*2,d.r*4,d.r*4);
+    }
+    /* podlaha */
+    for(const f of floorPts){
+      const [fx,fy,fsc]=pr(f.x,f.y,f.z);
+      const s2=f.sz*3.4*fsc;
+      ctx.globalAlpha=f.a*(.55+.45*Math.sin(t*.0014+f.tw));
+      ctx.drawImage(f.spr,fx-s2,fy-s2,s2*2,s2*2);
+    }
+    /* pulzy zo spadnutých produktov */
+    for(let i=pulses.length-1;i>=0;i--)if(t-pulses[i].t0>1400)pulses.splice(i,1);
+
+    /* košík: projekcia, odlesk, kreslenie */
+    const hasMouse=mx>-1e3;
+    for(const p of pts){
+      const [px0,py0,psc]=pr(p.x,p.y+bob,p.z);
+      let ox=p.ox,oy=p.oy,tx=0,ty=0;
+      if(hasMouse){
+        const dx=px0-mx,dy=py0-my,d2=dx*dx+dy*dy;
+        if(d2<64*64&&d2>.01){const d=Math.sqrt(d2),f2=(1-d/64)*13;tx=dx/d*f2;ty=dy/d*f2;}
+      }
+      ox+=(tx-ox)*Math.min(1,dt*.011);oy+=(ty-oy)*Math.min(1,dt*.011);
+      p.ox=ox;p.oy=oy;
+      const twk=.62+.38*Math.sin(t*.0016+p.tw);
+      let pk=0;
+      for(const pu of pulses){
+        const age=t-pu.t0,w=age*.055;
+        const g=Math.exp(-(((p.dc-w)/10)**2))*Math.max(0,1-age/1400);
+        if(g>pk)pk=g;
+      }
+      const al=Math.min(1,(.28+.62*twk)*Math.min(1,psc*psc)+pk*.9);
+      const s2=p.sz*3.3*psc*(1+pk*1.2);
+      const X=px0+ox,Y=py0+oy;
+      /* odlesk na podlahe */
+      if(p.sz>1.1&&Y<floorY){
+        const my2=2*floorY-Y;
+        if(my2<S+20){
+          ctx.globalAlpha=al*.13*Math.max(0,1-(floorY-Y)/230);
+          ctx.drawImage(p.spr,X-s2,my2-s2,s2*2,s2*2);
+        }
+      }
+      ctx.globalAlpha=al;
+      ctx.drawImage(p.spr,X-s2,Y-s2,s2*2,s2*2);
+    }
+    /* sprej — odparovanie doprava hore */
+    for(let i=0;i<drift.length;i++){
+      const d=drift[i];
+      d.life+=d.rate*dt;
+      if(d.life>=1){drift[i]=newDrift(false);continue;}
+      d.x+=d.vx*dt;d.y+=d.vy*dt;
+      const [px0,py0,psc]=pr(d.x,d.y+bob,d.z);
+      const s2=d.sz*3.2*psc;
+      ctx.globalAlpha=Math.sin(Math.PI*d.life)*.5*(.6+.4*Math.sin(t*.002+d.tw));
+      ctx.drawImage(SPR[NS-1-Math.floor(d.life*3)],px0-s2,py0-s2,s2*2,s2*2);
+    }
+    /* letiace produkty */
+    const [gx,gy]=pr(2,10+bob,0);
+    for(let i=flights.length-1;i>=0;i--){
+      const f=flights[i],e0=(t-f.t0)/f.dur;
+      if(e0>=1){
+        flights.splice(i,1);
+        pulses.push({t0:t});count++;badgeT=t;
+        continue;
+      }
+      const cxb=(f.x0+gx)/2,cyb=Math.min(f.y0,gy)-95;
+      for(const [off,al2,r2] of [[0,.95,5],[.07,.45,3.6],[.14,.2,2.5]]){
+        const e=Math.max(0,e0-off),u=1-Math.pow(1-e,3);
+        const ix=(1-u)*(1-u)*f.x0+2*(1-u)*u*cxb+u*u*gx;
+        const iy=(1-u)*(1-u)*f.y0+2*(1-u)*u*cyb+u*u*gy;
+        ctx.globalAlpha=al2;
+        ctx.drawImage(SPR[NS-1],ix-r2*3,iy-r2*3,r2*6,r2*6);
+      }
+    }
+    /* počítadlo na koši */
+    ctx.globalAlpha=1;
+    if(count>0){
+      const [bx,by]=pr(42,-10+bob,0);
+      const pop=1+.45*Math.exp(-(t-badgeT)/260);
+      ctx.drawImage(SPR[NS-1],bx-30*pop,by-30*pop,60*pop,60*pop);
+      ctx.globalCompositeOperation='source-over';
+      ctx.fillStyle='rgba(43,224,166,.96)';
+      ctx.beginPath();ctx.arc(bx,by,14.5*pop,0,7);ctx.fill();
+      ctx.fillStyle='#0B1220';
+      ctx.font=`800 ${Math.round(13.5*pop)}px Manrope,sans-serif`;
+      ctx.textAlign='center';ctx.textBaseline='middle';
+      ctx.fillText(count>99?'99+':count,bx,by+.5);
+      ctx.globalCompositeOperation='lighter';
+    }
+    ctx.globalAlpha=1;
+    ctx.globalCompositeOperation='source-over';
+  }
+  if(reduced){frame(9000);}
+  else{
+    let running=true,nextAuto=1600;
+    new IntersectionObserver(es=>{running=es[0].isIntersecting},{threshold:0}).observe(cv);
+    (function loop(t){
+      if(running){
+        if(t>nextAuto){ /* demo: produkt priletí sám každých pár sekúnd */
+          addProduct(70+Math.random()*(S-140),40+Math.random()*70,t);
+          nextAuto=t+3400+Math.random()*2800;
+        }
+        frame(t);
+      }
+      requestAnimationFrame(loop);
+    })(0);
+  }
+})();
+</script>
+
+<script>
+/* 3D obrázok košíka (kosik.png): aktivuje sa automaticky, keď súbor existuje;
+   tilt za kurzorom + levitácia + jemný parallax pri scrolle */
+(function(){
+  const img=document.getElementById('cart3d');if(!img)return;
+  const hv=document.querySelector('.hero-visual');
+  const hero=document.querySelector('.hero');
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const activate=()=>{
+    if(!img.naturalWidth)return;      /* súbor sa nenačítal → ostáva canvas košík */
+    hv.classList.add('img-ok');
+    if(reduced)return;
+    let tx=0,ty=0,rx=0,ry=0;
+    hero.addEventListener('mousemove',e=>{
+      const rc=hv.getBoundingClientRect();
+      tx=((e.clientX-rc.left)/rc.width*2-1)*10;   /* rotateY ±10° */
+      ty=((e.clientY-rc.top)/rc.height*2-1)*8;    /* rotateX ±8° */
+    });
+    hero.addEventListener('mouseleave',()=>{tx=ty=0});
+    (function loop(t){
+      rx+=(tx-rx)*.06;ry+=(ty-ry)*.06;
+      const bob=Math.sin(t*.0009)*9;
+      const par=Math.min(scrollY*.06,40);
+      img.style.transform=`translateY(${bob+par}px) rotateY(${rx}deg) rotateX(${-ry}deg)`;
+      requestAnimationFrame(loop);
+    })(0);
+  };
+  img.addEventListener('load',activate);
+  if(img.complete)activate();
+})();
+</script>
+
+<script>
+/* dynamické čísla — nabiehajú postupne (napr. 1 000 → 45 000+), spustia sa až v zábere;
+   slovenské formátovanie: medzera na tisíce, čiarka na desatiny */
+(function(){
+  const els=document.querySelectorAll('.cnt');if(!els.length)return;
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const fmt=(v,dec)=>{
+    const [i,f]=v.toFixed(dec).split('.');
+    const ii=i.replace(/\B(?=(\d{3})+(?!\d))/g,' ');
+    return f?ii+','+f:ii;
+  };
+  const ease=t=>1-Math.pow(1-t,3);
+  const run=el=>{
+    const from=parseFloat(el.dataset.from||'0'),to=parseFloat(el.dataset.to);
+    const dec=parseInt(el.dataset.dec||'0',10),dur=parseInt(el.dataset.dur||'1600',10);
+    if(reduced){el.textContent=fmt(to,dec);return;}
+    const t0=performance.now();
+    (function tick(now){
+      const p=Math.min((now-t0)/dur,1);
+      el.textContent=fmt(from+(to-from)*ease(p),dec);
+      if(p<1)requestAnimationFrame(tick);
+    })(t0);
+  };
+  const io=new IntersectionObserver(es=>{
+    es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);run(e.target)}});
+  },{threshold:.4});
+  els.forEach(el=>io.observe(el));
+})();
+</script>
+
+</body>
+</html>

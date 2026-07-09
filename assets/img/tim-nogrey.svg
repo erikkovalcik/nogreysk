@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-label="Tím noGrey pri tvorbe webov">
+  <defs>
+    <linearGradient id="tg-brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0E9DE5"/>
+      <stop offset="1" stop-color="#2BE0A6"/>
+    </linearGradient>
+    <linearGradient id="tg-screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0E9DE5"/>
+      <stop offset="1" stop-color="#2BE0A6"/>
+    </linearGradient>
+    <linearGradient id="tg-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F2F8FD"/>
+      <stop offset="1" stop-color="#E7F3FB"/>
+    </linearGradient>
+  </defs>
+
+  <!-- pozadie -->
+  <rect width="640" height="400" rx="18" fill="url(#tg-bg)"/>
+  <circle cx="545" cy="70" r="120" fill="#0E9DE5" opacity="0.07"/>
+  <circle cx="95" cy="340" r="90" fill="#2BE0A6" opacity="0.08"/>
+
+  <!-- veľká obrazovka na stene (mockup webu) -->
+  <g>
+    <rect x="196" y="52" width="248" height="150" rx="12" fill="#fff" stroke="#E3EAF2"/>
+    <rect x="196" y="52" width="248" height="26" rx="12" fill="#F3F6FA"/>
+    <rect x="196" y="66" width="248" height="12" fill="#F3F6FA"/>
+    <circle cx="212" cy="65" r="3.5" fill="#FF5F57"/>
+    <circle cx="224" cy="65" r="3.5" fill="#FFBD2E"/>
+    <circle cx="236" cy="65" r="3.5" fill="#28C840"/>
+    <rect x="196" y="78" width="248" height="124" fill="url(#tg-screen)"/>
+    <rect x="216" y="100" width="120" height="12" rx="6" fill="#fff" opacity="0.95"/>
+    <rect x="216" y="120" width="80" height="8" rx="4" fill="#fff" opacity="0.75"/>
+    <rect x="216" y="140" width="52" height="18" rx="6" fill="#fff"/>
+    <rect x="216" y="172" width="64" height="20" rx="6" fill="#fff" opacity="0.85"/>
+    <rect x="290" y="172" width="64" height="20" rx="6" fill="#fff" opacity="0.7"/>
+    <rect x="364" y="172" width="64" height="20" rx="6" fill="#fff" opacity="0.85"/>
+  </g>
+
+  <!-- kurzor -->
+  <path d="M410 150 l0 26 l7 -7 l5 11 l5 -2 l-5 -11 l10 0 z" fill="#0B1220"/>
+
+  <!-- stôl -->
+  <rect x="70" y="300" width="500" height="12" rx="6" fill="#CBD8E5"/>
+  <rect x="120" y="312" width="10" height="46" rx="4" fill="#B9C9D8"/>
+  <rect x="510" y="312" width="10" height="46" rx="4" fill="#B9C9D8"/>
+
+  <!-- laptop vľavo -->
+  <g>
+    <rect x="150" y="256" width="96" height="60" rx="6" fill="#0B1220"/>
+    <rect x="156" y="262" width="84" height="48" rx="3" fill="url(#tg-screen)"/>
+    <rect x="163" y="270" width="40" height="6" rx="3" fill="#fff" opacity="0.9"/>
+    <rect x="163" y="282" width="30" height="5" rx="2.5" fill="#fff" opacity="0.7"/>
+    <rect x="163" y="294" width="22" height="8" rx="3" fill="#fff"/>
+    <rect x="140" y="316" width="116" height="7" rx="3.5" fill="#1B2A3E"/>
+  </g>
+
+  <!-- laptop vpravo -->
+  <g>
+    <rect x="392" y="262" width="88" height="54" rx="6" fill="#0B1220"/>
+    <rect x="398" y="268" width="76" height="42" rx="3" fill="#101A2B"/>
+    <rect x="405" y="276" width="30" height="5" rx="2.5" fill="#2BE0A6"/>
+    <rect x="405" y="286" width="46" height="4" rx="2" fill="#3B5168"/>
+    <rect x="405" y="294" width="38" height="4" rx="2" fill="#3B5168"/>
+    <rect x="384" y="316" width="104" height="7" rx="3.5" fill="#1B2A3E"/>
+  </g>
+
+  <!-- postava 1 (azúrová) -->
+  <g>
+    <circle cx="198" cy="228" r="22" fill="#0E9DE5"/>
+    <path d="M164 300 v-26 a34 34 0 0 1 68 0 v26 z" fill="#0E9DE5"/>
+    <circle cx="198" cy="228" r="14" fill="#F6D2B8"/>
+    <path d="M184 220 a14 14 0 0 1 28 0 q-14 -8 -28 0z" fill="#2A3242"/>
+  </g>
+
+  <!-- postava 2 (mint) -->
+  <g>
+    <circle cx="436" cy="232" r="20" fill="#17B98A"/>
+    <path d="M406 300 v-24 a30 30 0 0 1 60 0 v24 z" fill="#17B98A"/>
+    <circle cx="436" cy="232" r="13" fill="#EBC0A0"/>
+    <path d="M423 230 a13 13 0 0 1 26 0 q-4 -14 -26 -4z" fill="#3A2E28"/>
+  </g>
+
+  <!-- rastlina -->
+  <g>
+    <rect x="300" y="286" width="30" height="26" rx="4" fill="#0E9DE5"/>
+    <path d="M315 286 q-16 -22 -2 -40 q6 20 2 40z" fill="#2BE0A6"/>
+    <path d="M315 286 q16 -18 4 -36 q-8 16 -4 36z" fill="#17B98A"/>
+    <path d="M315 286 q0 -26 0 -34" stroke="#0B7A5B" stroke-width="2" fill="none"/>
+  </g>
+
+  <!-- šálka kávy -->
+  <g>
+    <rect x="352" y="292" width="26" height="18" rx="4" fill="#fff" stroke="#CBD8E5"/>
+    <path d="M378 296 h6 a5 5 0 0 1 0 10 h-6" fill="none" stroke="#CBD8E5" stroke-width="2.5"/>
+    <path d="M360 286 q3 -5 0 -9 M369 286 q3 -5 0 -9" stroke="#9DB0C4" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </g>
+</svg>

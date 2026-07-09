@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /_zalohy/
+
+Sitemap: https://www.nogrey.online/sitemap.xml

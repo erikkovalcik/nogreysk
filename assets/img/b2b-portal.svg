@@ -1,0 +1,64 @@
+<svg viewBox="0 0 560 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrácia B2B portálu – partneri objednávajú online">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0E9DE5"/><stop offset="1" stop-color="#2BE0A6"/>
+    </linearGradient>
+    <linearGradient id="bh" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0E9DE5"/><stop offset="1" stop-color="#2BE0A6"/>
+    </linearGradient>
+    <clipPath id="win"><rect x="40" y="55" width="480" height="352" rx="18"/></clipPath>
+    <g id="pcard">
+      <rect width="155" height="100" rx="12" fill="#FFFFFF" stroke="#E3EAF2"/>
+      <rect x="8" y="8" width="139" height="40" rx="8" fill="url(#bg)" opacity="0.16"/>
+      <rect x="8" y="58" width="88" height="8" rx="4" fill="#0B1220" opacity="0.72"/>
+      <rect x="8" y="74" width="58" height="7" rx="3.5" fill="#C3D2DF"/>
+      <circle cx="136" cy="78" r="12" fill="url(#bg)"/>
+      <path d="M136 72.5v11M130.5 78h11" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </defs>
+
+  <!-- ambientný nádych -->
+  <ellipse cx="300" cy="240" rx="262" ry="188" fill="url(#bg)" opacity="0.10"/>
+
+  <!-- okno -->
+  <rect x="40" y="55" width="480" height="352" rx="18" fill="#FFFFFF"/>
+
+  <g clip-path="url(#win)">
+    <!-- horná lišta -->
+    <rect x="40" y="55" width="480" height="40" fill="#F3F6FA"/>
+    <circle cx="66" cy="75" r="5" fill="#0E9DE5"/>
+    <circle cx="84" cy="75" r="5" fill="#7FD0F0"/>
+    <circle cx="102" cy="75" r="5" fill="#CBE9F9"/>
+    <rect x="150" y="67" width="250" height="16" rx="8" fill="#FFFFFF" stroke="#E3EAF2"/>
+    <text x="166" y="79" font-family="Manrope,Arial,sans-serif" font-size="10" fill="#7C8A99">partner.vasa-firma.sk</text>
+
+    <!-- bočný panel -->
+    <rect x="40" y="95" width="112" height="312" fill="#F7F9FB"/>
+    <rect x="60" y="114" width="66" height="14" rx="7" fill="url(#bg)"/>
+    <rect x="52" y="150" width="92" height="30" rx="9" fill="url(#bg)" opacity="0.14"/>
+    <rect x="64" y="161" width="9" height="9" rx="2.5" fill="url(#bg)"/>
+    <rect x="82" y="162" width="48" height="7" rx="3.5" fill="#16AFD4"/>
+    <g fill="#C3D2DF">
+      <rect x="64" y="197" width="9" height="9" rx="2.5"/><rect x="82" y="198" width="52" height="7" rx="3.5"/>
+      <rect x="64" y="229" width="9" height="9" rx="2.5"/><rect x="82" y="230" width="44" height="7" rx="3.5"/>
+      <rect x="64" y="261" width="9" height="9" rx="2.5"/><rect x="82" y="262" width="50" height="7" rx="3.5"/>
+      <rect x="64" y="293" width="9" height="9" rx="2.5"/><rect x="82" y="294" width="38" height="7" rx="3.5"/>
+    </g>
+
+    <!-- hlavička obsahu -->
+    <rect x="172" y="118" width="150" height="14" rx="7" fill="#0B1220"/>
+    <rect x="172" y="140" width="92" height="8" rx="4" fill="#C3D2DF"/>
+    <rect x="418" y="115" width="84" height="30" rx="15" fill="url(#bh)"/>
+    <rect x="436" y="127" width="48" height="6" rx="3" fill="#FFFFFF" opacity="0.95"/>
+
+    <!-- katalóg (2×2) -->
+    <use href="#pcard" x="172" y="170"/>
+    <use href="#pcard" x="347" y="170"/>
+    <use href="#pcard" x="172" y="287"/>
+    <use href="#pcard" x="347" y="287"/>
+  </g>
+
+  <!-- plávajúci odznak: objednávka potvrdená -->
+  <circle cx="500" cy="66" r="27" fill="url(#bg)"/>
+  <path d="M488 66.5l8 7.5 15-16" stroke="#FFFFFF" stroke-width="4.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

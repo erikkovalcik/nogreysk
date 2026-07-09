@@ -1,0 +1,22 @@
+Sem nahrajte loga klientov ako SVG (idealne jednofarebne/sive), s presnymi nazvami:
+
+hk-dukla-trencin.svg
+fanshop-hockey-slovakia.svg
+mercedes-benz-trencin.svg
+eurotip-trencin.svg
+rezidencia-vinohrady.svg
+gratube.svg
+konstrukta-industry.svg
+restauracia-bosco.svg
+tiso-autosluzby.svg
+schodex.svg
+humed.svg
+hotel-magnus.svg
+sushi-magnus.svg
+
+POZNAMKY:
+- Karusel je v index.html (sekcia class="partners"), odkazy uz vedu na weby klientov.
+- Kym logo chyba, automaticky sa zobrazi textovy nazov firmy (fallback).
+- Loga su v karuseli zosivene (grayscale) a pri prejdeni mysou zfarbia + rozjasnia.
+- Ak mate PNG namiesto SVG, staci v index.html zmenit priponu .svg -> .png pri danom logu.
+- Odporucana vyska loga: cca 44 px, sirka max 168 px (pomer sa doladi automaticky).

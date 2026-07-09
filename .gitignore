@@ -1,0 +1,7 @@
+# Tajné údaje – nikdy necommitovať
+config.php
+
+# Systémové súbory
+Thumbs.db
+Desktop.ini
+.DS_Store
