@@ -1,0 +1,15 @@
+{
+  "name": "Kukuk – schvaľovanie Claude Code",
+  "short_name": "Kukuk",
+  "description": "Schvaľuj požiadavky Claude Code z telefónu – aj zo zamknutej obrazovky.",
+  "lang": "sk",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0B1220",
+  "theme_color": "#0B1220",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

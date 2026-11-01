@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="sk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Kukuk</title>
+  <meta name="description" content="Schvaľovanie Claude Code z telefónu">
+  <meta name="theme-color" content="#0B1220">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Kukuk">
+  <meta name="robots" content="noindex">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div class="brand"><span class="eyes" aria-hidden="true"><i></i><i></i></span> kukuk</div>
+      <div class="conn" id="conn" title="Spojenie so serverom"><span class="dot"></span><span id="conn-text">pripájam…</span></div>
+    </header>
+
+    <!-- párovanie -->
+    <section id="view-pair" class="view" hidden>
+      <div class="hero">
+        <h1>Claude ťa potrebuje? <span class="grad">Kukuk.</span></h1>
+        <p>Schvaľuj požiadavky Claude Code z telefónu – priamo z notifikácie alebo odtlačkom prsta, kdekoľvek si.</p>
+      </div>
+      <div class="card" id="ios-hint" hidden>
+        <strong>Najprv si Kukuk pridaj na plochu</strong>
+        <p>Na iPhone fungujú notifikácie len z appky na ploche: ťukni na <b>Zdieľať</b> <span aria-hidden="true">⎋</span> → <b>Pridať na plochu</b> a otvor Kukuk odtiaľ.</p>
+      </div>
+      <form class="card" id="pair-form" autocomplete="off">
+        <label for="pair-code">Párovací kód z Macu</label>
+        <input id="pair-code" inputmode="numeric" pattern="[0-9 ]*" maxlength="7" placeholder="123 456" required>
+        <label for="pair-name">Názov zariadenia</label>
+        <input id="pair-name" maxlength="40" placeholder="iPhone" required>
+        <button class="btn primary" type="submit">Spárovať</button>
+        <p class="muted small">Kód vypíše <code>node kukuk.js start</code> alebo <code>node kukuk.js pair</code>.</p>
+      </form>
+    </section>
+
+    <!-- hlavný pohľad -->
+    <section id="view-main" class="view" hidden>
+      <div id="setup"></div>
+      <h2 class="section-title">Čaká na schválenie <span class="count" id="pending-count"></span></h2>
+      <div id="pending"></div>
+      <h2 class="section-title">Relácie</h2>
+      <div id="sessions"></div>
+      <details class="card history">
+        <summary>História</summary>
+        <div id="history"></div>
+      </details>
+      <details class="card settings">
+        <summary>Nastavenia</summary>
+        <div id="settings"></div>
+      </details>
+    </section>
+  </main>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
