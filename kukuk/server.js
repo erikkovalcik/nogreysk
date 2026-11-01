@@ -483,12 +483,19 @@ function createServer(opts = {}) {
 
     if (method === 'POST' && pathname === '/api/push/test') {
       if (!device.subscription) return sendJson(res, 400, { error: 'Notifikácie nie sú zapnuté' });
-      const r = await push(device.subscription, { title: 'Kukuk 👀', body: 'Notifikácie fungujú.', tag: 'test', url: '/' }, { vapid: config.vapid, subject });
+      let r;
+      try {
+        r = await push(device.subscription, { title: 'Kukuk 👀', body: 'Notifikácie fungujú.', tag: 'test', url: '/' }, { vapid: config.vapid, subject });
+      } catch (err) {
+        console.warn('[kukuk] skúšobný push zlyhal:', err.cause?.message || err.message);
+        return sendJson(res, 502, { error: `PC sa nevie spojiť s push službou: ${err.cause?.code || err.message}` });
+      }
+      if (!r.ok) console.warn(`[kukuk] skúšobný push: ${r.status} ${r.text}`);
       if (r.gone) {
         device.subscription = null;
         persist();
       }
-      return sendJson(res, r.ok ? 200 : 502, r.ok ? { ok: true } : { error: `Push služba vrátila ${r.status}` });
+      return sendJson(res, r.ok ? 200 : 502, r.ok ? { ok: true } : { error: `Push služba vrátila ${r.status}: ${r.text.slice(0, 120)}` });
     }
 
     if (method === 'POST' && pathname === '/api/prefs') {
