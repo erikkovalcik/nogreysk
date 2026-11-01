@@ -5,6 +5,3 @@ config.php
 Thumbs.db
 Desktop.ini
 .DS_Store
-
-# Balík Kukuk na stiahnutie (vytvára sa lokálne)
-kukuk.zip
