@@ -1,6 +1,7 @@
 @echo off
 chcp 65001 >nul
 cd /d "%~dp0"
+set "PATH=%PATH%;%ProgramFiles%\nodejs;%ProgramFiles%\Tailscale"
 echo.
 echo   KUKUK - instalacia
 echo   ==================
@@ -17,13 +18,13 @@ echo.
 echo [2/4] Spustam Kukuk na pozadi - zapne sa aj po restarte PC...
 node kukuk.js autostart
 if errorlevel 1 goto :err
-timeout /t 2 /nobreak >nul
 
 echo.
 echo [3/4] Spristupnujem Kukuk pre telefon cez Tailscale...
 where tailscale >nul 2>nul
 if errorlevel 1 goto :notailscale
 tailscale serve --bg 8787
+if errorlevel 1 echo   Tailscale serve zlyhal - posli mi screenshot tohto okna.
 goto :pair
 
 :notailscale
@@ -36,11 +37,23 @@ start https://tailscale.com/download
 echo.
 echo [4/4] Parovaci kod pre telefon:
 node kukuk.js pair
+if errorlevel 1 goto :nolog
 echo   Na telefone otvor v Chrome adresu https://....ts.net vypisanu vyssie a zadaj kod.
 echo   Potom restartuj Claude Code.
 echo.
 pause
 exit /b 0
+
+:nolog
+echo.
+echo   Server sa nespustil. Zaznam chyby:
+echo   ----------------------------------
+if exist "%USERPROFILE%\.kukuk\server.log" type "%USERPROFILE%\.kukuk\server.log"
+echo   ----------------------------------
+echo   Skusam spustit server priamo v tomto okne:
+node kukuk.js start
+pause
+exit /b 1
 
 :nonode
 echo   Chyba Node.js. Stiahni verziu LTS z https://nodejs.org, nainstaluj ju

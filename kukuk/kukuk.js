@@ -249,7 +249,7 @@ function autostartWindows() {
   const q = (s) => s.replace(/"/g, '""');
   fs.mkdirSync(startup, { recursive: true });
   // Spustí server skryto (bez okna) pri každom prihlásení do Windows.
-  const run = `"""${q(process.execPath)}"" ""${q(KUKUK_JS)}"" start"`;
+  const run = `"""${q(process.execPath)}"" ""${q(KUKUK_JS)}"" start --log"`;
   fs.writeFileSync(vbs, `Set sh = CreateObject("WScript.Shell")\r\nsh.Run ${run}, 0, False\r\n`);
   execFileSync('wscript.exe', [vbs]);
   console.log(`✓ Kukuk beží na pozadí a spustí sa pri každom prihlásení (${vbs}).`);
@@ -286,11 +286,33 @@ function autostart() {
 }
 
 // ---------------- ostatné príkazy ----------------
+// Pri spustení na pozadí (bez okna) zapisuj výpis do ~/.kukuk/server.log.
+function logToFile() {
+  fs.mkdirSync(KUKUK_DIR, { recursive: true });
+  const file = path.join(KUKUK_DIR, 'server.log');
+  const write = (...a) => fs.appendFileSync(file, `[${new Date().toLocaleString('sk-SK')}] ${a.join(' ')}\n`);
+  console.log = console.warn = console.error = write;
+  process.on('uncaughtException', (err) => {
+    fs.appendFileSync(file, `[${new Date().toLocaleString('sk-SK')}] PÁD: ${err.stack || err}\n`);
+    process.exit(1);
+  });
+}
+
 async function pair() {
+  // server sa môže práve spúšťať na pozadí – chvíľu naň počkaj
+  for (let i = 0; i < 15; i++) {
+    try {
+      await api('GET', '/api/agent/state', null, 2000);
+      break;
+    } catch (err) {
+      if (err.status || i === 14) throw err;
+      await new Promise((ok) => setTimeout(ok, 1000));
+    }
+  }
   const { code, expiresAt } = await api('POST', '/api/agent/pair-code', {});
   const { base } = agent();
   console.log(`\n  Párovací kód: ${code.slice(0, 3)} ${code.slice(3)}   (platí do ${new Date(expiresAt).toLocaleTimeString('sk-SK')})`);
-  console.log(`  Otvor Kukuk na telefóne (napr. https://<tvoj-mac>.ts.net) alebo ${base} a zadaj kód.\n`);
+  console.log(`  Otvor Kukuk na telefóne (adresa https://….ts.net z Tailscale) alebo na PC ${base} a zadaj kód.\n`);
 }
 
 async function decideCmd([id, decision]) {
@@ -324,6 +346,7 @@ async function main() {
       return hook();
     case 'start':
     case 'server':
+      if (args.includes('--log')) logToFile();
       return require('./server').start();
     case 'install':
       return install(args);
