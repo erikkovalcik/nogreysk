@@ -250,7 +250,8 @@ function autostartWindows() {
   fs.mkdirSync(startup, { recursive: true });
   // Spustí server skryto (bez okna) pri každom prihlásení do Windows.
   const run = `"""${q(process.execPath)}"" ""${q(KUKUK_JS)}"" start --log"`;
-  fs.writeFileSync(vbs, `Set sh = CreateObject("WScript.Shell")\r\nsh.Run ${run}, 0, False\r\n`);
+  // UTF-16 s BOM – inak WScript pokazí cesty s diakritikou (napr. „Pracovná plocha“).
+  fs.writeFileSync(vbs, `\ufeffSet sh = CreateObject("WScript.Shell")\r\nsh.Run ${run}, 0, False\r\n`, 'utf16le');
   execFileSync('wscript.exe', [vbs]);
   console.log(`✓ Kukuk beží na pozadí a spustí sa pri každom prihlásení (${vbs}).`);
 }
