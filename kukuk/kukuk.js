@@ -142,7 +142,9 @@ function writeSettings(file, settings) {
 function install(args) {
   const file = settingsPath(args);
   const settings = stripKuk(loadSettings(file));
-  const command = `"${process.execPath}" "${KUKUK_JS}" hook`;
+  // Na Windows spúšťa Claude Code hooky cez Git Bash – lomky dopredu fungujú v bash aj cmd.
+  const fwd = (p) => (process.platform === 'win32' ? p.replace(/\\/g, '/') : p);
+  const command = `"${fwd(process.execPath)}" "${fwd(KUKUK_JS)}" hook`;
   settings.hooks = settings.hooks || {};
   for (const [event, timeout] of Object.entries(HOOK_EVENTS)) {
     settings.hooks[event] = settings.hooks[event] || [];
@@ -240,8 +242,22 @@ function menubarInstall(args) {
 }
 
 // ---------------- automatické spúšťanie na Macu ----------------
+function autostartWindows() {
+  const appData = process.env.APPDATA || path.join(os.homedir(), 'AppData', 'Roaming');
+  const startup = path.join(appData, 'Microsoft', 'Windows', 'Start Menu', 'Programs', 'Startup');
+  const vbs = path.join(startup, 'kukuk.vbs');
+  const q = (s) => s.replace(/"/g, '""');
+  fs.mkdirSync(startup, { recursive: true });
+  // Spustí server skryto (bez okna) pri každom prihlásení do Windows.
+  const run = `"""${q(process.execPath)}"" ""${q(KUKUK_JS)}"" start"`;
+  fs.writeFileSync(vbs, `Set sh = CreateObject("WScript.Shell")\r\nsh.Run ${run}, 0, False\r\n`);
+  execFileSync('wscript.exe', [vbs]);
+  console.log(`✓ Kukuk beží na pozadí a spustí sa pri každom prihlásení (${vbs}).`);
+}
+
 function autostart() {
-  if (process.platform !== 'darwin') throw new Error('Automatické spúšťanie je len pre macOS (launchd).');
+  if (process.platform === 'win32') return autostartWindows();
+  if (process.platform !== 'darwin') throw new Error('Automatické spúšťanie je len pre macOS a Windows.');
   const label = 'sk.nogrey.kukuk';
   const plist = path.join(os.homedir(), 'Library/LaunchAgents', `${label}.plist`);
   const log = path.join(KUKUK_DIR, 'server.log');
@@ -296,7 +312,7 @@ const HELP = `Kukuk 👀 – schvaľovanie Claude Code z telefónu a z lišty Ma
   node kukuk.js pair               nový párovací kód pre telefón
   node kukuk.js status             stav servera, zariadení a relácií
   node kukuk.js menubar-install [priečinok]   plugin do lišty (SwiftBar / xbar)
-  node kukuk.js autostart          spúšťať server pri prihlásení (macOS)
+  node kukuk.js autostart          spúšťať server na pozadí pri prihlásení (macOS, Windows)
   node kukuk.js decide <id> allow|always|deny|terminal
 
 Premenné: KUKUK_PORT, KUKUK_HOST, KUKUK_URL, KUKUK_TOKEN, KUKUK_WAIT, KUKUK_CONTACT, KUKUK_MAC_NOTIFY=0, KUKUK_DIR`;

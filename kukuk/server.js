@@ -569,6 +569,10 @@ function start() {
   const port = Number(process.env.KUKUK_PORT || config.port || 8787);
   const host = process.env.KUKUK_HOST || '127.0.0.1';
   const kukuk = createServer({ config });
+  kukuk.server.on('error', (err) => {
+    console.error(err.code === 'EADDRINUSE' ? `Kukuk už beží (port ${port} je obsadený).` : `Chyba servera: ${err.message}`);
+    process.exit(1);
+  });
   kukuk.server.listen(port, host, () => {
     const p = kukuk.newPairingCode();
     console.log(`\n  👀 Kukuk beží na http://${host === '0.0.0.0' ? 'localhost' : host}:${port}`);

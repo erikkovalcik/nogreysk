@@ -19,6 +19,16 @@ Claude Code ──hook──▶ Kukuk server (tvoj počítač) ──web push─
 
 Kukuk používa hook `PermissionRequest` v Claude Code. Ak telefón neodpovie, server nebeží alebo zvolíš „Rozhodnem v termináli“, Claude Code ti ukáže bežný dialóg v termináli. Nič sa nezasekne.
 
+## Windows – inštalácia dvojklikom
+
+1. Nainštaluj **Node.js** (verzia LTS) z [nodejs.org](https://nodejs.org).
+2. Nainštaluj **Tailscale** na PC aj do telefónu ([tailscale.com/download](https://tailscale.com/download)), prihlás sa na oboch rovnakým účtom a v administrácii zapni *DNS → HTTPS Certificates*.
+3. Rozbaľ Kukuk, napr. do `C:\kukuk`, a dvakrát klikni na **`INSTALOVAT-WINDOWS.cmd`**.
+4. Na telefóne otvor v Chrome vypísanú adresu `https://….ts.net`, zadaj párovací kód a zapni notifikácie.
+5. Reštartuj Claude Code.
+
+Kukuk potom beží na pozadí a spustí sa aj po reštarte PC.
+
 ## Inštalácia (5 minút)
 
 ### 1. Spusti server na počítači
